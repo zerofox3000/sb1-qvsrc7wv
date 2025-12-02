@@ -1,0 +1,132 @@
+# MoneyGraph.AI - Robots.txt
+# Optimized for search engines and AI crawlers
+
+# Universal Rules
+User-agent: *
+Allow: /
+Disallow: /ADMIN987
+Disallow: /admin
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemap Location
+Sitemap: https://moneygraph.ai/sitemap.xml
+
+# Google Bot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /private/
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# OpenAI GPT Bot
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 0
+
+# ChatGPT User Bot
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 0
+
+# Anthropic Claude Bot
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 0
+
+# Claude Web Crawler
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 0
+
+# Google Bard / Gemini
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 0
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 0
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+Crawl-delay: 0
+
+# Amazon Alexa
+User-agent: ia_archiver
+Allow: /
+Crawl-delay: 1
+
+# Common Crawlers
+User-agent: Applebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# AI Training Bots (Selective Allow)
+User-agent: CCBot
+Allow: /blog/
+Allow: /recipes/
+Allow: /ai/
+Disallow: /
+
+# Specific AI Crawlers for Documentation
+User-agent: Diffbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: archive.org_bot
+Allow: /
+Crawl-delay: 5
+
+# Social Media Bots
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+# Block Malicious/Scraper Bots
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# AI Research Bots (Allow for Research Purposes)
+User-agent: research-bot
+Allow: /
+
+User-agent: academia-bot
+Allow: /

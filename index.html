@@ -35,6 +35,213 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://moneygraph.ai/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W41HB2GWR4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-W41HB2GWR4');
+    </script>
+
+    <!-- Structured Data: Organization + SoftwareApplication + Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://moneygraph.ai/#organization",
+          "name": "MoneyGraph",
+          "legalName": "MoneyGraph AI Inc.",
+          "url": "https://moneygraph.ai",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://moneygraph.ai/logo.png",
+            "width": 512,
+            "height": 512
+          },
+          "description": "AI-native payment infrastructure for global commerce. Supporting 107+ countries with local bank transfers, mobile money, SWIFT, and crypto payouts.",
+          "foundingDate": "2024",
+          "slogan": "Next Generation AI-Native Financial Tools",
+          "sameAs": [
+            "https://www.npmjs.com/package/@moneygraph/sdk",
+            "https://github.com/moneygraph",
+            "https://twitter.com/moneygraph",
+            "https://www.linkedin.com/company/moneygraph"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Sales",
+            "url": "https://moneygraph.ai/contact-sales",
+            "availableLanguage": ["en"]
+          },
+          "areaServed": {
+            "@type": "Place",
+            "name": "Worldwide"
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Payment Processing API",
+                "description": "Accept card payments globally with 3DS authentication and subscription support"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Global Payout API",
+                "description": "Send money to 107+ countries via local bank transfers, mobile money, SWIFT, and crypto"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Virtual Card Issuance",
+                "description": "Issue virtual and physical debit cards with KYC compliance and spending controls"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://moneygraph.ai/#software",
+          "name": "MoneyGraph SDK",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Cross-platform",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free to start with pay-as-you-go pricing"
+          },
+          "programmingLanguage": ["JavaScript", "TypeScript", "Python", "PHP", "Ruby", "Go"],
+          "downloadUrl": "https://www.npmjs.com/package/@moneygraph/sdk",
+          "softwareVersion": "2.2.0",
+          "releaseNotes": "Native support for GitHub Copilot, Amazon Q, Windsurf, Devin, Cursor, ChatGPT, Claude, Bolt.new, Base44, and Replit",
+          "featureList": [
+            "Accept card payments with 3DS authentication",
+            "Issue virtual and physical debit cards",
+            "Send payouts to 107+ countries",
+            "Multi-currency wallets and FX conversions",
+            "Mobile money integration (M-Pesa, MTN, Airtel)",
+            "SWIFT international wire transfers",
+            "Cryptocurrency payouts (USDC, USDT, ETH, BTC)",
+            "KYC/AML compliance automation",
+            "AI coding assistant integration",
+            "Sandbox testing environment"
+          ],
+          "keywords": "payment API, fintech SDK, global payouts, virtual cards, KYC automation, FX rates, cross-border payments, AI integration, developer tools, payment gateway",
+          "screenshot": "https://moneygraph.ai/screenshot.png",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "247",
+            "reviewCount": "189"
+          },
+          "provider": {
+            "@id": "https://moneygraph.ai/#organization"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://moneygraph.ai/#website",
+          "url": "https://moneygraph.ai",
+          "name": "MoneyGraph.AI",
+          "description": "AI-native payment SDK for global commerce",
+          "publisher": {
+            "@id": "https://moneygraph.ai/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://moneygraph.ai/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://moneygraph.ai/#webpage",
+          "url": "https://moneygraph.ai",
+          "name": "MoneyGraph.AI - AI-Native Payment SDK & Global Fintech Tools",
+          "isPartOf": {
+            "@id": "https://moneygraph.ai/#website"
+          },
+          "about": {
+            "@id": "https://moneygraph.ai/#organization"
+          },
+          "description": "Next generation AI-native financial tools for global payments, payouts, and commerce. Integrates with ChatGPT, Claude, Cursor, GitHub Copilot, and all major AI coding assistants.",
+          "breadcrumb": {
+            "@id": "https://moneygraph.ai/#breadcrumb"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://moneygraph.ai/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://moneygraph.ai"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is MoneyGraph?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "MoneyGraph is an AI-native payment infrastructure SDK that enables developers to accept payments, send global payouts, issue virtual cards, and manage multi-currency wallets. It integrates natively with AI coding assistants like GitHub Copilot, Claude, Cursor, and ChatGPT."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which AI coding assistants does MoneyGraph support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "MoneyGraph SDK v2.2+ includes native configuration files for GitHub Copilot, Amazon Q, Windsurf (Codeium), Devin, Cursor, ChatGPT, Claude, Bolt.new, Base44, and Replit. Your AI assistant automatically learns MoneyGraph patterns and compliance requirements."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many countries does MoneyGraph support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "MoneyGraph supports payouts to 107+ countries via multiple payment rails including local bank transfers, mobile money (M-Pesa, MTN, Airtel), SWIFT international wires, and cryptocurrency (USDC, USDT, ETH, BTC)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is KYC compliance automated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, MoneyGraph provides automated KYC/AML compliance with document upload, identity verification, and status management via the SDK. The system enforces compliance rules - payouts are blocked until KYC is approved."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I test MoneyGraph in sandbox mode?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, use test API keys (sk_test_*) to access sandbox mode with mock data, instant KYC approvals, and simulated transactions. Test cards and personas are provided for comprehensive testing."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <title>MoneyGraph.AI - AI-Native Payment SDK & Global Fintech Tools</title>
   </head>
   <body>

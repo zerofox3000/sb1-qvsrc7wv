@@ -76,10 +76,13 @@ This recipe shows you how to build a complete payment acceptance platform using 
 ```
 
 ## Prerequisites
+Get started for Free using the Sandbox Keys for test responses. 
 
 - MoneyGraph account with payment acceptance enabled
 - Public key (`pk_test_*` or `pk_live_*`) for client-side
 - Secret key (`sk_test_*` or `sk_live_*`) for server-side
+
+Get Live Key
 
 ## Integration Options
 
