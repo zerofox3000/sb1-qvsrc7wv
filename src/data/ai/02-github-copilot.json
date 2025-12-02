@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "How to Use GitHub Copilot with MoneyGraph for Payment Integrations",
+    "slug": "github-copilot-moneygraph-integration",
+    "description": "Step-by-step guide to using GitHub Copilot with MoneyGraph SDK. Learn how Copilot understands KYC compliance, FX quotes, and cross-border payouts automatically.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["github-copilot", "ai-coding", "payments", "sdk", "tutorial", "developer-tools", "fintech"],
+    "reading_time": "6 min",
+    "featured_image": "/blog/github-copilot-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "GitHub Copilot + MoneyGraph: AI-Powered Payment Integration",
+    "og_description": "Build compliant payment flows with GitHub Copilot. Our SDK teaches Copilot the correct patterns for KYC, FX, and cross-border payouts.",
+    "canonical_url": "https://moneygraph.ai/blog/github-copilot-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "github copilot payment integration",
+      "copilot fintech sdk",
+      "ai code generation payments",
+      "github copilot instructions file",
+      "copilot custom instructions",
+      "payment api copilot",
+      "cross-border payments copilot",
+      "kyc compliance copilot",
+      "moneygraph copilot setup",
+      "ai assisted fintech development"
+    ]
+  },
+  "content": {
+    "intro": "GitHub Copilot is the world's most widely used AI coding assistant. With MoneyGraph SDK v2.2, Copilot now understands how to build compliant payment integrations without hallucinating endpoints or skipping critical compliance checks.",
+    "sections": [
+      {
+        "heading": "What Copilot Learns from MoneyGraph",
+        "body": "When you install our SDK, Copilot reads .github/copilot-instructions.md and learns three critical patterns."
+      },
+      {
+        "heading": "1. Never Use Raw Fetch",
+        "body": "Copilot will never generate code like this:",
+        "code_wrong": "const response = await fetch('https://api.stratospay.com/v1/payouts');",
+        "body_after": "Instead, it generates:",
+        "code_right": "import { MoneyGraph } from '@moneygraph/sdk';\nconst mg = new MoneyGraph({ apiKey: process.env.MONEYGRAPH_API_KEY });"
+      },
+      {
+        "heading": "2. The Golden Path",
+        "body": "Copilot understands the correct sequence for payment integrations:\n\n1. **Initialize** — Create client with API key\n2. **Onboard** — Create customer and complete KYC\n3. **Quote** — Get FX rate (valid 2 minutes)\n4. **Confirm** — Lock the rate\n5. **Payout** — Send money"
+      },
+      {
+        "heading": "3. Dual-Mode Awareness",
+        "body": "Copilot knows that sk_test_* keys enable sandbox mode with mock data, while sk_live_* keys trigger real transactions."
+      },
+      {
+        "heading": "Setup (30 Seconds)",
+        "code": "npm install @moneygraph/sdk",
+        "body": "That's it. Copilot automatically reads the instructions file."
+      },
+      {
+        "heading": "Try It: Prompt Examples",
+        "body": "Open a TypeScript file and try this prompt:\n\n**Prompt**: \"Create a function to send $100 to Nigeria\"",
+        "code_example": "import { MoneyGraph } from '@moneygraph/sdk';\n\nasync function sendToNigeria(customerId: string) {\n  const mg = new MoneyGraph({ apiKey: process.env.MONEYGRAPH_API_KEY });\n  \n  // Check KYC status first\n  const status = await mg.customers.kyc.canPayout(customerId);\n  if (!status.allowed) {\n    throw new Error('KYC not approved');\n  }\n  \n  // Get quote and confirm\n  const quote = await mg.fx.quote({ from: 'USD', to: 'NGN', amount: 100 });\n  await mg.fx.confirm(quote.id);\n  \n  // Send payout\n  return mg.payouts.create({\n    quote_id: quote.id,\n    customer_id: customerId,\n    recipient: {\n      name: 'Recipient Name',\n      bank_code: '058',\n      account_number: '0123456789',\n    },\n  });\n}",
+        "callout": "Notice how Copilot used the SDK (not fetch), checked KYC first, followed Quote → Confirm → Payout, and used environment variables."
+      },
+      {
+        "heading": "Advanced: Copilot Chat",
+        "body": "In Copilot Chat, you can ask questions like:\n\n- \"How do I handle a QUOTE_EXPIRED error in MoneyGraph?\"\n- \"What's the difference between mg.payouts.create and mg.payouts.swift.create?\"\n- \"Show me how to issue a virtual card\"\n\nCopilot will reference the SDK patterns from our instructions file."
+      },
+      {
+        "heading": "Troubleshooting",
+        "body": "**Copilot ignores the instructions**: Make sure you're in a workspace where node_modules/@moneygraph/sdk exists. Copilot reads instructions from installed packages.\n\n**Copilot still uses fetch**: Try adding a comment // Use MoneyGraph SDK above your cursor. This primes Copilot to use the correct patterns."
+      }
+    ],
+    "cta": {
+      "text": "Next Steps",
+      "links": [
+        {"label": "MoneyGraph SDK Documentation", "url": "https://docs.moneygraph.ai"},
+        {"label": "Full API Reference", "url": "https://moneygraph.ai/docs/api"},
+        {"label": "GitHub Copilot Docs", "url": "https://docs.github.com/copilot"}
+      ]
+    }
+  }
+}

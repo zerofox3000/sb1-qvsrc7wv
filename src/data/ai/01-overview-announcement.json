@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "title": "MoneyGraph Now Supports the Big 5 AI Coding Agents",
+    "slug": "moneygraph-big-5-ai-agent-support",
+    "description": "MoneyGraph SDK v2.2 introduces native support for GitHub Copilot, Amazon Q, Windsurf, Devin, and Cursor. Build payment integrations 10x faster with AI that understands fintech compliance.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Product Updates",
+    "tags": ["ai-agents", "github-copilot", "amazon-q", "windsurf", "devin", "cursor", "sdk", "fintech", "payments", "developer-tools"],
+    "reading_time": "4 min",
+    "featured_image": "/blog/big-5-ai-agents-hero.png"
+  },
+  "seo": {
+    "og_title": "MoneyGraph + Big 5 AI Agents: Build Payment Apps 10x Faster",
+    "og_description": "The first fintech SDK with native support for GitHub Copilot, Amazon Q, Windsurf, Devin, and Cursor. Ship compliant payment integrations in minutes.",
+    "canonical_url": "https://moneygraph.ai/blog/moneygraph-big-5-ai-agent-support",
+    "schema_type": "BlogPosting",
+    "keywords": [
+      "moneygraph ai integration",
+      "github copilot payments sdk",
+      "amazon q fintech",
+      "windsurf payment integration",
+      "devin autonomous engineer payments",
+      "cursor ide fintech sdk",
+      "ai native payment sdk",
+      "cross-border payments ai",
+      "kyc compliance ai coding",
+      "fintech developer tools 2025"
+    ]
+  },
+  "content": {
+    "tldr": "MoneyGraph SDK v2.2 ships with native configuration files for GitHub Copilot, Amazon Q, Windsurf (Codeium), Devin, and Cursor. Your AI coding assistant now understands KYC compliance, FX quotes, and cross-border payment flows out of the box.",
+    "sections": [
+      {
+        "heading": "The Problem We Solved",
+        "body": "Every developer building with AI coding assistants has experienced this: you ask Copilot to integrate a payment API, and it hallucinates endpoints that don't exist. Or it generates raw fetch() calls instead of using the SDK. Or worst of all—it skips compliance checks that could get your app shut down.\n\nWe fixed this."
+      },
+      {
+        "heading": "Introducing Big 5 Agent Support",
+        "body": "Starting with SDK v2.2, when you install @moneygraph/sdk, your AI coding assistant automatically loads our configuration files and learns:\n\n- **The correct SDK patterns** — No more hallucinated API calls\n- **Compliance requirements** — KYC checks before payouts, always\n- **The Quote → Confirm → Payout flow** — Rate locking done right\n- **Environment safety** — Sandbox vs production guards"
+      },
+      {
+        "heading": "What's Included",
+        "body_type": "table",
+        "table": {
+          "headers": ["Agent", "Config File", "What It Does"],
+          "rows": [
+            ["GitHub Copilot", ".github/copilot-instructions.md", "Teaches Copilot the Golden Path for payments"],
+            ["Amazon Q", ".amazonq/rules/moneygraph.md", "Enforces 6 compliance rules with severity levels"],
+            ["Windsurf", ".windsurfrules.md", "Cascade-style rules with namespace mapping"],
+            ["Devin", ".devin/wiki.json", "Domain mapping so Devin finds the right code"],
+            ["Cursor", ".cursor/rules/moneygraph.mdc", "MDC rules with glob patterns"]
+          ]
+        }
+      },
+      {
+        "heading": "How It Works",
+        "body": "When you open a project with MoneyGraph installed, your AI assistant reads our configuration files and understands the SDK. Ask it to \"send a payout to Nigeria\" and it will:\n\n1. Check KYC status first (compliance rule)\n2. Get an FX quote (rate locking)\n3. Confirm the quote (2-minute validity)\n4. Execute the payout with proper error handling\n\nNo hallucinations. No compliance gaps. No debugging AI-generated code for hours."
+      },
+      {
+        "heading": "Get Started",
+        "body_type": "code",
+        "code": "npm install @moneygraph/sdk",
+        "language": "bash",
+        "note": "That's it. The agent configs are included in the package. Your AI assistant will pick them up automatically."
+      },
+      {
+        "heading": "What Developers Are Saying",
+        "body_type": "quotes",
+        "quotes": [
+          {
+            "text": "I asked Cursor to build a remittance flow and it generated production-ready code on the first try. The KYC checks were already there.",
+            "author": "Senior Engineer, Fintech Startup"
+          },
+          {
+            "text": "Devin built our entire payout integration autonomously. It found the SDK docs, understood the compliance requirements, and shipped working code.",
+            "author": "CTO, Neobank"
+          }
+        ]
+      }
+    ],
+    "cta": {
+      "text": "Learn More",
+      "links": [
+        {"label": "GitHub Copilot Integration Guide", "url": "/blog/github-copilot-moneygraph-integration"},
+        {"label": "Amazon Q Developer Rules", "url": "/blog/amazon-q-moneygraph-compliance"},
+        {"label": "Windsurf Setup Guide", "url": "/blog/windsurf-moneygraph-setup"},
+        {"label": "Devin Autonomous Integration", "url": "/blog/devin-moneygraph-autonomous"},
+        {"label": "Cursor Rules Deep Dive", "url": "/blog/cursor-moneygraph-rules"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "Building Fintech Apps with Base44 and MoneyGraph",
+    "slug": "base44-moneygraph-integration",
+    "description": "How to use Base44 AI app generator with MoneyGraph SDK. Build complete payment applications from natural language prompts.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["base44", "ai-app-generator", "no-code", "low-code", "payments", "sdk", "fintech", "react"],
+    "reading_time": "6 min",
+    "featured_image": "/blog/base44-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Base44 + MoneyGraph: Generate Payment Apps with AI",
+    "og_description": "Use Base44 to generate complete fintech applications. Our integration guide teaches Base44 to build KYC flows, FX quotes, and payouts.",
+    "canonical_url": "https://moneygraph.ai/blog/base44-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "base44 payments",
+      "base44 fintech",
+      "ai app generator payments",
+      "no-code payment app",
+      "base44 moneygraph",
+      "generate fintech app",
+      "ai generated payment flow",
+      "base44 integration guide",
+      "payment app generator",
+      "low-code remittance"
+    ]
+  },
+  "content": {
+    "intro": "Base44 is an AI-powered app generator that creates full-stack applications from natural language descriptions. Combined with MoneyGraph SDK, you can generate complete fintech applications in minutes.",
+    "what_is_base44": {
+      "generates": [
+        "React frontend with components",
+        "API routes and backend logic",
+        "Database schemas",
+        "Authentication flows"
+      ],
+      "with_moneygraph": [
+        "KYC verification flows",
+        "FX quote displays",
+        "Payout processing",
+        "Transaction history"
+      ]
+    },
+    "setup": {
+      "steps": [
+        "npm install @moneygraph/sdk",
+        "Add MONEYGRAPH_API_KEY to .env",
+        "Add recipes/BASE44_GUIDE.md to project context"
+      ]
+    },
+    "prompt_templates": [
+      {
+        "name": "Remittance App",
+        "prompt": "Build a remittance app using MoneyGraph SDK that allows users to:\n1. Register and complete KYC verification\n2. Get FX quotes for USD to NGN transfers\n3. Send money to Nigerian bank accounts\n4. Track payout status\n\nUse mg.customers for registration, mg.customers.kyc for verification, mg.fx for quotes, and mg.executeSmartPayout() for transfers."
+      },
+      {
+        "name": "Multi-Currency Wallet",
+        "prompt": "Build a wallet app using MoneyGraph SDK with:\n1. User registration with KYC\n2. Multi-currency wallets (USD, EUR, NGN)\n3. Wallet-to-wallet transfers\n4. FX conversion between currencies"
+      },
+      {
+        "name": "Virtual Card Platform",
+        "prompt": "Build a virtual card platform using MoneyGraph SDK:\n1. User registration and KYC\n2. Issue virtual USD cards\n3. Fund cards from wallet\n4. View card transactions"
+      }
+    ],
+    "patterns_followed": [
+      "KYC Before Payouts - Always generates KYC checks",
+      "Quote Expiry Handling - Includes countdown timers",
+      "Error Handling - Uses MoneyGraph error types",
+      "Loading States - All API calls include indicators"
+    ],
+    "tips": [
+      {
+        "tip": "Be Specific About UI",
+        "example": "Build a send money form with amount input, currency selector, recipient bank dropdown, real-time FX quote display, 2-minute countdown timer"
+      },
+      {
+        "tip": "Specify Error Messages",
+        "example": "Handle KYC_PENDING with 'Please complete verification', QUOTE_EXPIRED with 'Rate expired, fetching new quote...'"
+      },
+      {
+        "tip": "Request Sandbox Testing",
+        "example": "Include sandbox testing with mg.customers.createMockPersona('business_verified')"
+      }
+    ]
+  },
+  "config_file": "recipes/BASE44_GUIDE.md"
+}

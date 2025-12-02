@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "Building Payment Apps with Bolt.new and MoneyGraph",
+    "slug": "bolt-new-moneygraph-integration",
+    "description": "How to use Bolt.new (StackBlitz) with MoneyGraph SDK. Build and deploy payment applications directly in your browser.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["bolt-new", "stackblitz", "browser-ide", "payments", "sdk", "tutorial", "fintech", "vite", "react"],
+    "reading_time": "5 min",
+    "featured_image": "/blog/bolt-new-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Bolt.new + MoneyGraph: Browser-Based Fintech Development",
+    "og_description": "Build payment applications in your browser with Bolt.new. Our integration guide includes server actions, React components, and deployment tips.",
+    "canonical_url": "https://moneygraph.ai/blog/bolt-new-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "bolt new payments",
+      "bolt new fintech",
+      "stackblitz payment app",
+      "browser ide payments",
+      "bolt new moneygraph",
+      "vite payment integration",
+      "browser-based fintech development",
+      "bolt new react payments",
+      "stackblitz sdk integration",
+      "online payment app builder"
+    ]
+  },
+  "config_file": "BOLT_INTEGRATION.md"
+}

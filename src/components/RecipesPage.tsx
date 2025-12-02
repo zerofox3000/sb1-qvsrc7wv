@@ -1,29 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CreditCard, Users, Wallet } from 'lucide-react';
+import { recipes } from '../data/recipes';
 
-const recipes = [
-  {
-    slug: 'accept-payments',
-    title: 'Accept Payments',
-    icon: CreditCard,
-    description: 'Complete guide to accepting card payments with embedded widgets and API integration',
-    category: 'Payment Processing',
-  },
-  {
-    slug: 'payroll-application',
-    title: 'Build a Payroll App',
-    icon: Users,
-    description: 'Step-by-step guide to building a global payroll system with automated payments',
-    category: 'Business Applications',
-  },
-  {
-    slug: 'issue-credit-cards',
-    title: 'Issue Virtual Cards',
-    icon: Wallet,
-    description: 'Learn how to issue virtual credit cards and manage spending controls',
-    category: 'Card Issuance',
-  },
-];
+const recipeIcons: Record<string, any> = {
+  'accept-payments-platform-moneygraph': CreditCard,
+  'virtual-card-platform-moneygraph': Wallet,
+  'remittance-app-moneygraph': Users,
+};
 
 export default function RecipesPage() {
   return (
@@ -44,25 +27,24 @@ export default function RecipesPage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {recipes.map((recipe) => (
-            <div
-              key={recipe.slug}
-              className="glass-strong rounded-xl p-8 hover:scale-105 transition-transform"
-            >
-              <recipe.icon className="w-12 h-12 text-cyan-400 mb-4" />
-              <div className="text-sm text-emerald-400 font-semibold mb-2">{recipe.category}</div>
-              <h2 className="text-2xl font-bold mb-3">{recipe.title}</h2>
-              <p className="text-gray-400 mb-4">{recipe.description}</p>
-              <a
-                href="https://www.npmjs.com/package/@moneygraph/sdk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400 font-semibold hover:text-cyan-300 transition"
+          {recipes.map((recipe) => {
+            const Icon = recipeIcons[recipe.id] || CreditCard;
+            return (
+              <Link
+                key={recipe.slug}
+                to={`/recipes/${recipe.slug}`}
+                className="glass-strong rounded-xl p-8 hover:scale-105 transition-transform"
               >
-                View in SDK Documentation →
-              </a>
-            </div>
-          ))}
+                <Icon className="w-12 h-12 text-cyan-400 mb-4" />
+                <div className="text-sm text-emerald-400 font-semibold mb-2">{recipe.category}</div>
+                <h2 className="text-2xl font-bold mb-3">{recipe.title}</h2>
+                <p className="text-gray-400 mb-4">{recipe.description}</p>
+                <span className="text-cyan-400 font-semibold hover:text-cyan-300 transition">
+                  View Recipe →
+                </span>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="mt-12 glass-strong rounded-2xl p-8 text-center">

@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "title": "Windsurf Rules for MoneyGraph: Cascade-Style Payment Integration",
+    "slug": "windsurf-moneygraph-setup",
+    "description": "Configure Windsurf (Codeium) for MoneyGraph payment integrations. Learn how our Cascade rules teach Windsurf the SDK architecture and compliance patterns.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["windsurf", "codeium", "cascade", "ai-coding", "payments", "sdk", "tutorial"],
+    "reading_time": "5 min",
+    "featured_image": "/blog/windsurf-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Windsurf + MoneyGraph: Cascade Rules for Payment APIs",
+    "og_description": "Windsurf's Cascade engine understands MoneyGraph's namespace hierarchy, compliance rules, and task flows. Build payments faster.",
+    "canonical_url": "https://moneygraph.ai/blog/windsurf-moneygraph-setup",
+    "schema_type": "HowTo",
+    "keywords": [
+      "windsurf codeium",
+      "windsurf rules",
+      "cascade rules",
+      "codeium payment integration",
+      "windsurf fintech",
+      "ai coding assistant payments",
+      "windsurf custom rules",
+      "moneygraph windsurf setup",
+      "cascade syntax tutorial",
+      "payment sdk windsurf"
+    ]
+  },
+  "content": {
+    "intro": "Windsurf (powered by Codeium) is the fastest-growing alternative to Cursor, known for its Cascade rules engine. MoneyGraph SDK v2.2 includes a comprehensive .windsurfrules.md file that teaches Windsurf our entire SDK architecture.",
+    "cascade_tags": [
+      {
+        "tag": "<coding>",
+        "description": "Strict TypeScript patterns",
+        "example": "<coding>\n  <rule id=\"init-pattern\" severity=\"critical\">\n    Always initialize MoneyGraph with the constructor pattern.\n  </rule>\n  \n  <rule id=\"typescript-strict\" severity=\"high\">\n    Use strict TypeScript typing with MoneyGraph types.\n  </rule>\n</coding>"
+      },
+      {
+        "tag": "<architecture>",
+        "description": "Windsurf learns our entire namespace hierarchy",
+        "example": "<architecture>\n  <namespace name=\"customers\" domain=\"Customer Onboarding\">\n    <sub_namespace name=\"kyc\" domain=\"KYC Verification\">\n      <operations>submit, getStatus, uploadDocument, canPayout</operations>\n    </sub_namespace>\n  </namespace>\n  \n  <namespace name=\"payouts\" domain=\"Outbound Payments\">\n    <sub_namespace name=\"swift\" domain=\"SWIFT Transfers\" />\n    <sub_namespace name=\"mobileMoney\" domain=\"Mobile Money\" />\n    <sub_namespace name=\"crypto\" domain=\"Crypto Payouts\" />\n  </namespace>\n</architecture>"
+      },
+      {
+        "tag": "<task_mapping>",
+        "description": "Step-by-step flows for common tasks",
+        "example": "<task name=\"Send International Payment\">\n  <flow>\n    1. mg.customers.kyc.canPayout() - Verify KYC\n    2. mg.fx.quote() - Get FX quote\n    3. mg.fx.confirm() - Lock the rate\n    4. mg.payouts.create() - Execute payout\n  </flow>\n</task>"
+      }
+    ],
+    "how_it_works": {
+      "heading": "How Windsurf Uses These Rules",
+      "steps": [
+        "Reads the architecture — Understands which namespace to use",
+        "Follows the task flow — Executes steps in order",
+        "Applies coding rules — Uses strict types and patterns",
+        "Checks compliance — Adds KYC verification automatically"
+      ]
+    },
+    "example": {
+      "prompt": "Build a function to send money to Kenya via M-Pesa",
+      "code": "import { MoneyGraph } from '@moneygraph/sdk';\nimport type { Payout } from '@moneygraph/sdk';\n\nasync function sendToKenyaMpesa(\n  customerId: string,\n  amount: number,\n  phoneNumber: string\n): Promise<Payout> {\n  const mg = new MoneyGraph({ apiKey: process.env.MONEYGRAPH_API_KEY! });\n  \n  // Task: Send International Payment (from task_mapping)\n  // Step 1: Verify KYC\n  const status = await mg.customers.kyc.canPayout(customerId);\n  if (!status.allowed) {\n    throw new Error(`KYC not approved: ${status.status}`);\n  }\n  \n  // Step 2: Get FX quote\n  const quote = await mg.fx.quote({\n    from: 'USD',\n    to: 'KES',\n    amount,\n  });\n  \n  // Step 3: Lock the rate\n  await mg.fx.confirm(quote.id);\n  \n  // Step 4: Execute payout via mobile money\n  return mg.payouts.mobileMoney.create({\n    quote_id: quote.id,\n    customer_id: customerId,\n    recipient: {\n      name: 'Recipient',\n      mobile_network: 'MPESA',\n      mobile_number: phoneNumber,\n    },\n  });\n}",
+      "callouts": [
+        "Used mg.payouts.mobileMoney (correct namespace from architecture)",
+        "Followed the 4-step flow (from task_mapping)",
+        "Added TypeScript types (from coding rules)",
+        "Included KYC check (from compliance rules)"
+      ]
+    },
+    "why_windsurf": {
+      "heading": "Why Windsurf + MoneyGraph",
+      "body": "Windsurf's Cascade engine excels at understanding hierarchical systems. Our SDK's namespace structure (mg.customers.kyc, mg.payouts.swift, etc.) maps perfectly to Cascade's mental model.\n\nIf you're building complex fintech applications with multiple payment rails, Windsurf + MoneyGraph is a powerful combination."
+    }
+  }
+}

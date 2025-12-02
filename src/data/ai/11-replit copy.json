@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "Building Payment Apps with Replit and MoneyGraph",
+    "slug": "replit-moneygraph-integration",
+    "description": "How to use Replit and Replit Agent with MoneyGraph SDK. Build payment applications in a collaborative browser-based environment.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["replit", "replit-agent", "ghostwriter", "browser-ide", "payments", "sdk", "tutorial", "fintech", "node", "express"],
+    "reading_time": "6 min",
+    "featured_image": "/blog/replit-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Replit + MoneyGraph: Collaborative Fintech Development",
+    "og_description": "Build payment applications on Replit with MoneyGraph. Our guide covers Replit Agent, Ghostwriter, and deployment to production.",
+    "canonical_url": "https://moneygraph.ai/blog/replit-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "replit payments",
+      "replit fintech",
+      "replit agent payments",
+      "ghostwriter payment code",
+      "replit moneygraph",
+      "replit sdk integration",
+      "collaborative fintech development",
+      "replit express payments",
+      "replit deployment payments",
+      "online payment app development"
+    ]
+  },
+  "content": {
+    "intro": "Replit is a collaborative browser-based IDE with AI coding capabilities (Replit Agent, Ghostwriter). Combined with MoneyGraph SDK, you can build, test, and deploy payment applications entirely in your browser.",
+    "why_replit": {
+      "replit_provides": [
+        "Instant development environment",
+        "Replit Agent for autonomous coding",
+        "Ghostwriter for AI assistance",
+        "Built-in database",
+        "One-click deployment",
+        "Collaborative editing"
+      ],
+      "moneygraph_adds": [
+        "Global payment API",
+        "KYC and compliance",
+        "Multi-currency wallets",
+        "Card issuance"
+      ]
+    },
+    "setup": {
+      "steps": [
+        "Create a Node.js or TypeScript Repl",
+        "Run: npm install @moneygraph/sdk",
+        "Go to Tools → Secrets and add MONEYGRAPH_API_KEY",
+        "Import and initialize the SDK"
+      ]
+    },
+    "express_template": {
+      "heading": "Express.js Template",
+      "endpoints": [
+        "POST /api/customers - Create customer",
+        "POST /api/quotes - Get FX quote",
+        "POST /api/payouts - Smart payout"
+      ],
+      "features": [
+        "KYC verification before payouts",
+        "MoneyGraph error handling",
+        "JSON request/response"
+      ]
+    },
+    "replit_agent_instructions": {
+      "heading": "Replit Agent Instructions",
+      "prompt": "Build a payment API using MoneyGraph SDK.\n\nCRITICAL RULES:\n1. Check KYC before payouts: mg.customers.kyc.canPayout()\n2. Use Quote → Confirm → Payout for FX\n3. Use mg.executeSmartPayout() for simple integration\n4. Never hardcode API keys - use Replit Secrets",
+      "result": "Replit Agent generates compliant code with proper error handling"
+    },
+    "replit_db": {
+      "heading": "Replit Database Integration",
+      "use_cases": [
+        "Store customer ID mappings",
+        "Cache FX rates",
+        "Track transaction history"
+      ]
+    },
+    "webhooks": {
+      "heading": "Webhook Endpoint",
+      "description": "Handle payout status updates from MoneyGraph",
+      "events": ["payout.completed", "payout.failed", "payout.cancelled"]
+    },
+    "deployment": {
+      "heading": "Deployment",
+      "steps": [
+        "Add production secrets (sk_live_*)",
+        "Enable Always On",
+        "Use custom domain for webhooks",
+        "Add MONEYGRAPH_WEBHOOK_SECRET"
+      ]
+    },
+    "tips": [
+      "Use Secrets - Never commit API keys",
+      "Enable Ghostwriter - AI understands MoneyGraph patterns",
+      "Use Replit DB - Store customer mappings",
+      "Test sandbox first - Always use sk_test_* during development",
+      "Set up webhooks - For production status updates"
+    ]
+  },
+  "config_file": "REPLIT_INTEGRATION.md"
+}

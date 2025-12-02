@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "title": "Cursor Rules for MoneyGraph: MDC Configuration Deep Dive",
+    "slug": "cursor-moneygraph-rules",
+    "description": "Deep dive into MoneyGraph's Cursor rules file. Learn how our MDC configuration teaches Cursor the SDK patterns, namespace hierarchy, and compliance requirements.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["cursor", "cursor-ide", "mdc", "ai-coding", "payments", "sdk", "tutorial", "developer-tools"],
+    "reading_time": "6 min",
+    "featured_image": "/blog/cursor-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Cursor + MoneyGraph: MDC Rules for Payment Integration",
+    "og_description": "Our MDC rules file teaches Cursor the MoneyGraph SDK. Quote → Confirm → Payout, KYC compliance, error handling—all automatic.",
+    "canonical_url": "https://moneygraph.ai/blog/cursor-moneygraph-rules",
+    "schema_type": "HowTo",
+    "keywords": [
+      "cursor ide",
+      "cursor rules",
+      "cursor mdc",
+      "cursor payment integration",
+      "cursor fintech sdk",
+      "mdc configuration",
+      "cursor custom rules",
+      "moneygraph cursor setup",
+      "ai ide payments",
+      "cursor glob patterns"
+    ]
+  },
+  "content": {
+    "intro": "Cursor is the AI-first IDE that's taken the developer world by storm. MoneyGraph SDK has supported Cursor since v1.0, but with v2.2, we've completely rewritten our rules for the new v2.1+ namespace structure.",
+    "mdc_structure": {
+      "heading": "What's in Our MDC File",
+      "frontmatter": {
+        "description": "The .cursor/rules/moneygraph.mdc file uses Cursor's MDC format:",
+        "example": "---\ndescription: MoneyGraph Fintech SDK Standards\nglobs: [\"**/*.ts\", \"**/*.tsx\", \"**/*.js\", \"**/*.jsx\"]\nalwaysApply: true\n---",
+        "explanations": [
+          "globs — Rules apply to all TypeScript and JavaScript files",
+          "alwaysApply — Rules are active even without explicit mention"
+        ]
+      }
+    },
+    "critical_rules": {
+      "heading": "Critical Rules",
+      "description": "Our rules file defines four non-negotiable patterns:",
+      "rules": [
+        {
+          "number": 1,
+          "name": "Never Use Raw Fetch",
+          "wrong": "const response = await fetch('https://api.stratospay.com/v1/payouts');",
+          "right": "import { MoneyGraph } from '@moneygraph/sdk';\nconst mg = new MoneyGraph({ apiKey: process.env.MONEYGRAPH_API_KEY });"
+        },
+        {
+          "number": 2,
+          "name": "Quote & Confirm Pattern",
+          "code": "const quote = await mg.fx.quote({ from: 'USD', to: 'NGN', amount: 100 });\nawait mg.fx.confirm(quote.id);\nconst payout = await mg.payouts.create({ quote_id: quote.id, ... });"
+        },
+        {
+          "number": 3,
+          "name": "KYC Before Payout",
+          "code": "const status = await mg.customers.kyc.canPayout(customerId);\nif (!status.allowed) {\n  throw new Error(`KYC not approved: ${status.status}`);\n}"
+        },
+        {
+          "number": 4,
+          "name": "Environment Variables",
+          "code": "const mg = new MoneyGraph({ apiKey: process.env.MONEYGRAPH_API_KEY });"
+        }
+      ]
+    },
+    "namespace_table": {
+      "heading": "Namespace Reference Table",
+      "description": "Our rules include a complete namespace table:",
+      "namespaces": [
+        {"namespace": "mg.customers", "purpose": "Customer CRUD"},
+        {"namespace": "mg.customers.kyc", "purpose": "KYC verification"},
+        {"namespace": "mg.customers.directors", "purpose": "Business directors"},
+        {"namespace": "mg.fx", "purpose": "FX quotes and rates"},
+        {"namespace": "mg.wallets", "purpose": "Multi-currency wallets"},
+        {"namespace": "mg.transfers", "purpose": "Customer-to-customer"},
+        {"namespace": "mg.payouts", "purpose": "Local bank payouts"},
+        {"namespace": "mg.payouts.swift", "purpose": "SWIFT transfers"},
+        {"namespace": "mg.payouts.mobileMoney", "purpose": "Mobile money"},
+        {"namespace": "mg.payouts.crypto", "purpose": "Crypto payouts"},
+        {"namespace": "mg.cards", "purpose": "Card issuance"},
+        {"namespace": "mg.payments", "purpose": "Accept payments"},
+        {"namespace": "mg.r3", "purpose": "Route optimization"},
+        {"namespace": "mg.reference", "purpose": "Reference data"}
+      ],
+      "note": "Cursor uses this table to select the correct namespace for each task."
+    },
+    "golden_path": {
+      "heading": "The Golden Path",
+      "description": "Our rules include a complete \"Golden Path\" example:",
+      "code": "// 1. Create customer\nconst customer = await mg.customers.create({ ... });\n\n// 2. Submit KYC\nawait mg.customers.kyc.submit(customer.id, { ... });\n\n// 3. Verify KYC approved\nconst status = await mg.customers.kyc.canPayout(customer.id);\n\n// 4. Quote → Confirm → Payout\nconst quote = await mg.fx.quote({ from: 'USD', to: 'NGN', amount: 100 });\nawait mg.fx.confirm(quote.id);\nconst payout = await mg.payouts.create({ ... });",
+      "note": "Cursor references this pattern when generating payment flows."
+    },
+    "smart_payout": {
+      "heading": "Smart Payout Recommendation",
+      "description": "Our rules highlight executeSmartPayout() as the recommended approach:",
+      "code": "const result = await mg.executeSmartPayout({\n  customer_id: 'cust_xxx',\n  from_currency: 'USD',\n  to_currency: 'NGN',\n  amount: 100,\n  recipient: { ... },\n  priority: 'cost',\n});",
+      "note": "When you ask Cursor for a \"simple payout,\" it uses this method."
+    },
+    "pro_tips": {
+      "heading": "Pro Tips",
+      "tips": [
+        {
+          "name": "Use Cursor Chat",
+          "examples": [
+            "What's the difference between mg.payouts.create and mg.payouts.swift.create?",
+            "How do I handle QUOTE_EXPIRED errors?",
+            "Show me how to create a virtual card"
+          ]
+        },
+        {
+          "name": "Inline Comments",
+          "description": "Add comments to prime Cursor:",
+          "example": "// Use MoneyGraph to send payout to Nigeria\n// Include KYC check and error handling"
+        },
+        {
+          "name": "Reference the Namespace",
+          "description": "If Cursor picks the wrong namespace, mention it explicitly:",
+          "example": "// Use mg.payouts.mobileMoney for M-Pesa"
+        }
+      ]
+    },
+    "why_cursor": {
+      "heading": "Why Cursor Loves MoneyGraph",
+      "body": "Cursor's strength is understanding complex codebases. Our SDK's clean namespace hierarchy (mg.module.submodule.method) maps perfectly to how Cursor thinks about code structure.\n\nCombined with our MDC rules, Cursor becomes a fintech expert that understands compliance, rate locking, and multi-rail payments."
+    }
+  }
+}

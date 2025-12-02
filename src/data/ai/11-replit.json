@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "Building Payment Apps with Replit and MoneyGraph",
+    "slug": "replit-moneygraph-integration",
+    "description": "How to use Replit and Replit Agent with MoneyGraph SDK. Build payment applications in a collaborative browser-based environment.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["replit", "replit-agent", "ghostwriter", "browser-ide", "payments", "sdk", "tutorial", "fintech", "node", "express"],
+    "reading_time": "6 min",
+    "featured_image": "/blog/replit-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Replit + MoneyGraph: Collaborative Fintech Development",
+    "og_description": "Build payment applications on Replit with MoneyGraph. Our guide covers Replit Agent, Ghostwriter, and deployment to production.",
+    "canonical_url": "https://moneygraph.ai/blog/replit-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "replit payments",
+      "replit fintech",
+      "replit agent payments",
+      "ghostwriter payment code",
+      "replit moneygraph",
+      "replit sdk integration",
+      "collaborative fintech development",
+      "replit express payments",
+      "replit deployment payments",
+      "online payment app development"
+    ]
+  },
+  "config_file": "REPLIT_INTEGRATION.md"
+}

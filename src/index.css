@@ -32,24 +32,27 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    @apply px-4 py-2.5 tablet:px-6 tablet:py-3 rounded-lg font-semibold transition-all duration-300 text-sm tablet:text-base;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    color: #000000;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+    color: #000000;
   }
 
   .btn-primary:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
+    color: #000000;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 glass;
+    @apply px-4 py-2.5 tablet:px-6 tablet:py-3 rounded-lg font-semibold transition-all duration-300 glass text-sm tablet:text-base;
     border: 2px solid rgba(0, 212, 255, 0.3);
   }
 

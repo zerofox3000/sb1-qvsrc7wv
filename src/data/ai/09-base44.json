@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "Building Fintech Apps with Base44 and MoneyGraph",
+    "slug": "base44-moneygraph-integration",
+    "description": "How to use Base44 AI app generator with MoneyGraph SDK. Build complete payment applications from natural language prompts.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["base44", "ai-app-generator", "no-code", "low-code", "payments", "sdk", "fintech", "react"],
+    "reading_time": "6 min",
+    "featured_image": "/blog/base44-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Base44 + MoneyGraph: Generate Payment Apps with AI",
+    "og_description": "Use Base44 to generate complete fintech applications. Our integration guide teaches Base44 to build KYC flows, FX quotes, and payouts.",
+    "canonical_url": "https://moneygraph.ai/blog/base44-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "base44 payments",
+      "base44 fintech",
+      "ai app generator payments",
+      "no-code payment app",
+      "base44 moneygraph",
+      "generate fintech app",
+      "ai generated payment flow",
+      "base44 integration guide",
+      "payment app generator",
+      "low-code remittance"
+    ]
+  },
+  "config_file": "recipes/BASE44_GUIDE.md"
+}

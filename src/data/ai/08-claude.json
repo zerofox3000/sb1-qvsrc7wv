@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "Building Payment Apps with Claude.ai and MoneyGraph",
+    "slug": "claude-ai-moneygraph-integration",
+    "description": "How to use Claude.ai Projects with MoneyGraph SDK. Copy our project instructions and let Claude build compliant payment integrations automatically.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["claude", "anthropic", "ai-coding", "payments", "sdk", "tutorial", "fintech", "project-instructions"],
+    "reading_time": "5 min",
+    "featured_image": "/blog/claude-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Claude.ai + MoneyGraph: AI-Powered Payment Development",
+    "og_description": "Use Claude.ai Projects to build payment apps with MoneyGraph. Our project instructions teach Claude compliance, FX patterns, and error handling.",
+    "canonical_url": "https://moneygraph.ai/blog/claude-ai-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "claude ai payments",
+      "anthropic claude fintech",
+      "claude project instructions",
+      "ai payment development",
+      "claude sdk integration",
+      "moneygraph claude setup",
+      "claude coding assistant payments",
+      "anthropic payment api",
+      "claude projects knowledge",
+      "ai fintech development"
+    ]
+  },
+  "config_file": "CLAUDE_AI_INSTRUCTIONS.md"
+}

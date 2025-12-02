@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "title": "How Devin Builds MoneyGraph Integrations Autonomously",
+    "slug": "devin-moneygraph-autonomous",
+    "description": "Devin, the autonomous AI engineer, can build complete MoneyGraph payment integrations. Learn how our wiki.json teaches Devin to navigate our SDK.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["devin", "autonomous-ai", "ai-engineer", "payments", "sdk", "automation", "fintech"],
+    "reading_time": "5 min",
+    "featured_image": "/blog/devin-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Devin + MoneyGraph: Autonomous Payment Integration",
+    "og_description": "Devin reads our wiki.json to understand MoneyGraph's architecture. It builds complete payment flows without human guidance.",
+    "canonical_url": "https://moneygraph.ai/blog/devin-moneygraph-autonomous",
+    "schema_type": "HowTo",
+    "keywords": [
+      "devin ai engineer",
+      "devin autonomous coding",
+      "devin wiki json",
+      "autonomous payment integration",
+      "ai builds fintech app",
+      "devin custom knowledge",
+      "moneygraph devin setup",
+      "autonomous code generation payments",
+      "devin domain mapping",
+      "ai engineer fintech"
+    ]
+  },
+  "content": {
+    "intro": "Devin is the leading \"autonomous AI engineer\" — an agent that can build entire features without constant human guidance. With MoneyGraph SDK v2.2, Devin can autonomously build compliant payment integrations.",
+    "wiki_structure": {
+      "heading": "How Devin Learns MoneyGraph",
+      "description": "Devin uses a .devin/wiki.json file to understand codebases. Our wiki.json teaches Devin:",
+      "sections": [
+        {
+          "name": "Domain Mapping",
+          "description": "Where to find code for different concerns",
+          "example": "{\n  \"domain_mapping\": {\n    \"Banking Logic\": {\n      \"path\": \"src/resources/fx.ts\",\n      \"key_methods\": [\"quote\", \"confirm\", \"rates\"]\n    },\n    \"Entity Verification\": {\n      \"path\": \"src/resources/customers.ts\",\n      \"key_methods\": [\"create\", \"kyc.submit\", \"kyc.canPayout\"]\n    },\n    \"Payment Processing\": {\n      \"path\": \"src/resources/payouts.ts\",\n      \"key_methods\": [\"create\", \"swift.create\", \"mobileMoney.create\"]\n    }\n  }\n}",
+          "benefit": "When Devin needs to implement KYC, it knows to look at src/resources/customers.ts."
+        },
+        {
+          "name": "Patterns",
+          "description": "Reusable patterns Devin can apply",
+          "example": "{\n  \"patterns\": {\n    \"golden_path\": {\n      \"steps\": [\n        \"Initialize: new MoneyGraph({ apiKey })\",\n        \"Create customer: mg.customers.create()\",\n        \"Submit KYC: mg.customers.kyc.submit()\",\n        \"Verify KYC: mg.customers.kyc.canPayout()\",\n        \"Get quote: mg.fx.quote()\",\n        \"Lock rate: mg.fx.confirm()\",\n        \"Send payout: mg.payouts.create()\"\n      ]\n    },\n    \"smart_payout\": {\n      \"method\": \"mg.executeSmartPayout()\",\n      \"description\": \"Combines R3 + FX + Payout in one call\"\n    }\n  }\n}"
+        },
+        {
+          "name": "Compliance Rules",
+          "description": "Rules Devin must follow",
+          "example": "{\n  \"compliance_rules\": [\n    {\n      \"id\": \"kyc-before-payout\",\n      \"severity\": \"critical\",\n      \"check\": \"mg.customers.kyc.canPayout(customerId).allowed === true\"\n    }\n  ]\n}"
+        },
+        {
+          "name": "System Notes",
+          "description": "High-priority instructions",
+          "example": "{\n  \"system_notes\": [\n    \"ALWAYS check the examples/ and recipes/ folders before writing new code\",\n    \"Use mg.executeSmartPayout() for the simplest payout integration\",\n    \"KYC verification is REQUIRED before any payout operation\"\n  ]\n}"
+        }
+      ]
+    },
+    "capabilities": {
+      "heading": "What Devin Can Build",
+      "items": [
+        "Complete remittance flows — Customer onboarding through payout",
+        "Multi-rail payment systems — Local, SWIFT, mobile money, crypto",
+        "Card issuance platforms — Virtual and physical cards",
+        "Payment acceptance — Card processing with 3DS"
+      ]
+    },
+    "example": {
+      "heading": "Example: Autonomous Build",
+      "task": "Build a payroll system that sends salaries to employees in Nigeria, Kenya, and Ghana",
+      "devin_steps": [
+        "Reads .devin/wiki.json → Understands MoneyGraph architecture",
+        "Checks recipes/ folder → Finds REMITTANCE_FLOW.md",
+        "Identifies domains → Banking Logic, Entity Verification, Payment Processing",
+        "Follows golden_path → Implements Init → Onboard → Quote → Payout",
+        "Applies compliance_rules → Adds KYC checks before every payout",
+        "Uses correct namespaces → mg.payouts.create for Nigeria, mg.payouts.mobileMoney.create for Kenya"
+      ],
+      "result": "A complete, compliant payroll system in under an hour."
+    },
+    "best_practices": {
+      "heading": "Best Practices for Devin + MoneyGraph",
+      "tips": [
+        "Start with smart_payout — Tell Devin to use executeSmartPayout() for simple integrations",
+        "Point to recipes — Mention the recipes/ folder in your task description",
+        "Specify compliance — Remind Devin that KYC is required (it should know, but reinforcement helps)"
+      ]
+    },
+    "future": {
+      "heading": "The Future of Fintech Development",
+      "body": "Autonomous AI engineers like Devin represent the future of software development. By providing structured knowledge in wiki.json, we enable Devin to build production-grade fintech applications without constant human oversight."
+    }
+  }
+}

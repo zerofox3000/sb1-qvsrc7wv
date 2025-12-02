@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "title": "Building Payment Apps with Claude.ai and MoneyGraph",
+    "slug": "claude-ai-moneygraph-integration",
+    "description": "How to use Claude.ai Projects with MoneyGraph SDK. Copy our project instructions and let Claude build compliant payment integrations automatically.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["claude", "anthropic", "ai-coding", "payments", "sdk", "tutorial", "fintech", "project-instructions"],
+    "reading_time": "5 min",
+    "featured_image": "/blog/claude-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Claude.ai + MoneyGraph: AI-Powered Payment Development",
+    "og_description": "Use Claude.ai Projects to build payment apps with MoneyGraph. Our project instructions teach Claude compliance, FX patterns, and error handling.",
+    "canonical_url": "https://moneygraph.ai/blog/claude-ai-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "claude ai payments",
+      "anthropic claude fintech",
+      "claude project instructions",
+      "ai payment development",
+      "claude sdk integration",
+      "moneygraph claude setup",
+      "claude coding assistant payments",
+      "anthropic payment api",
+      "claude projects knowledge",
+      "ai fintech development"
+    ]
+  },
+  "content": {
+    "intro": "Claude.ai from Anthropic is one of the most capable AI assistants for complex reasoning and code generation. With MoneyGraph's CLAUDE_AI_INSTRUCTIONS.md, Claude understands how to build compliant payment applications from your first prompt.",
+    "why_claude": {
+      "claude_strengths": [
+        "Understanding complex business logic (KYC flows, compliance rules)",
+        "Generating complete, working code (not just snippets)",
+        "Following detailed instructions precisely",
+        "Explaining its reasoning (helpful for audits)"
+      ],
+      "moneygraph_provides": [
+        "40+ API endpoints for global payments",
+        "Built-in compliance (KYC before payouts)",
+        "Multi-rail support (local, SWIFT, mobile money, crypto)"
+      ]
+    },
+    "setup": {
+      "heading": "Setup: Add Project Instructions",
+      "steps": [
+        "Create a new Project in Claude.ai",
+        "Go to Project Knowledge",
+        "Paste the contents of CLAUDE_AI_INSTRUCTIONS.md"
+      ],
+      "note": "That's it. Claude now understands MoneyGraph."
+    },
+    "what_claude_learns": {
+      "kyc_rule": {
+        "name": "The Golden Rule: KYC Before Payouts",
+        "code": "const status = await mg.customers.kyc.canPayout(customerId);\nif (!status.allowed) {\n  throw new Error(`KYC not approved: ${status.status}`);\n}"
+      },
+      "quote_flow": {
+        "name": "Quote → Confirm → Payout",
+        "code": "const quote = await mg.fx.quote({ from: 'USD', to: 'NGN', amount: 100 });\nawait mg.fx.confirm(quote.id);  // Lock rate for 2 minutes\nconst payout = await mg.payouts.create({ quote_id: quote.id, ... });"
+      },
+      "namespaces": [
+        "mg.customers.kyc for verification",
+        "mg.payouts.mobileMoney for M-Pesa",
+        "mg.cards for virtual cards"
+      ]
+    },
+    "example_prompts": [
+      {
+        "name": "Build a Remittance API",
+        "prompt": "Build a REST API for a remittance service using MoneyGraph. Users should be able to register, complete KYC, and send money to Nigeria.",
+        "claude_generates": [
+          "Express.js routes",
+          "Customer registration with validation",
+          "KYC submission flow",
+          "Quote and payout endpoints",
+          "Error handling with MoneyGraph error types"
+        ]
+      },
+      {
+        "name": "Create a Wallet System",
+        "prompt": "Create a multi-currency wallet system where users can hold USD, EUR, and NGN. Include FX conversion between currencies."
+      },
+      {
+        "name": "Issue Virtual Cards",
+        "prompt": "Build a virtual card issuance feature. Users with approved KYC can create USD cards and fund them from their wallet."
+      }
+    ],
+    "compliance_awareness": {
+      "heading": "Claude's Compliance Awareness",
+      "points": [
+        "Never skips KYC - Always checks before payouts",
+        "Handles errors properly - Uses MoneyGraphError types",
+        "Uses environment variables - Never hardcodes secrets",
+        "Follows date formats - DD-MM-YYYY for birthdays"
+      ]
+    },
+    "best_practices": [
+      {
+        "tip": "Be Specific About Business Logic",
+        "example": "Build a payout service that only allows payouts to verified customers, limits transactions to $10,000 per day, and sends email notifications on completion."
+      },
+      {
+        "tip": "Ask for Explanations",
+        "example": "Build a KYC flow and explain why each step is necessary for regulatory compliance."
+      },
+      {
+        "tip": "Request Error Handling",
+        "example": "Include comprehensive error handling for all MoneyGraph error codes: KYC_PENDING, QUOTE_EXPIRED, etc."
+      }
+    ]
+  },
+  "config_file": "CLAUDE_AI_INSTRUCTIONS.md"
+}

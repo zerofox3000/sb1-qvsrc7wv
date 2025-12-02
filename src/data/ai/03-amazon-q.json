@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "Amazon Q Developer Rules for MoneyGraph: Fintech Compliance Built-In",
+    "slug": "amazon-q-moneygraph-compliance",
+    "description": "How Amazon Q enforces financial compliance when generating MoneyGraph code. Learn about our 6 severity-rated rules for KYC, security, and API patterns.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["amazon-q", "aws", "compliance", "fintech", "enterprise", "sdk", "developer-tools", "security"],
+    "reading_time": "5 min",
+    "featured_image": "/blog/amazon-q-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Amazon Q + MoneyGraph: Enterprise-Grade Fintech Compliance",
+    "og_description": "Amazon Q enforces 6 compliance rules when generating MoneyGraph code. KYC checks, secret management, and API patterns—all automatic.",
+    "canonical_url": "https://moneygraph.ai/blog/amazon-q-moneygraph-compliance",
+    "schema_type": "HowTo",
+    "keywords": [
+      "amazon q developer",
+      "amazon q fintech",
+      "aws payment integration",
+      "amazon q rules",
+      "enterprise payment sdk",
+      "fintech compliance automation",
+      "kyc automation aws",
+      "amazon q custom rules",
+      "moneygraph aws integration",
+      "secure payment code generation"
+    ]
+  },
+  "content": {
+    "intro": "Amazon Q is the go-to AI coding assistant for enterprise and AWS shops. With MoneyGraph SDK v2.2, Amazon Q now enforces financial compliance rules when generating payment code.",
+    "rules": [
+      {
+        "number": 1,
+        "name": "KYC Before Payout",
+        "severity": "CRITICAL",
+        "description": "Amazon Q will never generate payout code without a KYC check.",
+        "code": "const kycStatus = await mg.customers.kyc.canPayout(customerId);\nif (!kycStatus.allowed) {\n  throw new Error(`KYC not approved. Status: ${kycStatus.status}`);\n}\n// Only then: payout"
+      },
+      {
+        "number": 2,
+        "name": "No Hardcoded Secrets",
+        "severity": "CRITICAL",
+        "description": "Amazon Q enforces environment variable usage.",
+        "code_right": "const mg = new MoneyGraph({ \n  apiKey: process.env.MONEYGRAPH_SECRET_KEY \n});",
+        "code_wrong": "const mg = new MoneyGraph({ apiKey: 'sk_live_abc123' });"
+      },
+      {
+        "number": 3,
+        "name": "Quote Before Confirm",
+        "severity": "HIGH",
+        "description": "Amazon Q understands rate locking.",
+        "code": "const quote = await mg.fx.quote({ from: 'USD', to: 'NGN', amount: 100 });\nawait mg.fx.confirm(quote.id); // Lock rate for 2 minutes"
+      },
+      {
+        "number": 4,
+        "name": "Idempotency Keys",
+        "severity": "HIGH",
+        "description": "For financial operations, Amazon Q adds idempotency.",
+        "code": "await mg.payouts.create(params, {\n  idempotencyKey: `payout_${orderId}_${Date.now()}`\n});"
+      },
+      {
+        "number": 5,
+        "name": "Error Handling",
+        "severity": "MEDIUM",
+        "description": "Amazon Q generates proper error handling with MoneyGraph error types.",
+        "code": "import { MoneyGraphValidationError, isRetryableError } from '@moneygraph/sdk';\n\ntry {\n  await mg.payouts.create(params);\n} catch (error) {\n  if (error instanceof MoneyGraphValidationError) {\n    console.error('Validation failed:', error.fieldErrors);\n  }\n  if (isRetryableError(error)) {\n    // Retry with backoff\n  }\n}"
+      },
+      {
+        "number": 6,
+        "name": "Environment Safety",
+        "severity": "MEDIUM",
+        "description": "Amazon Q guards against production mistakes.",
+        "code": "if (mg.mode === 'live' && process.env.NODE_ENV !== 'production') {\n  throw new Error('Live mode detected in non-production environment');\n}"
+      }
+    ],
+    "enterprise_value": {
+      "heading": "Why This Matters for Enterprise",
+      "body": "In regulated fintech environments, a single compliance gap can mean:\n- Failed audits\n- Regulatory fines\n- Service shutdowns\n\nAmazon Q with MoneyGraph rules ensures every generated line of code meets compliance requirements. Your security team will thank you."
+    },
+    "aws_integration": {
+      "heading": "Integration with AWS Services",
+      "services": [
+        {"name": "Lambda", "use": "Use MoneyGraph in serverless payout functions"},
+        {"name": "Step Functions", "use": "Orchestrate KYC → Quote → Payout workflows"},
+        {"name": "Secrets Manager", "use": "Store MONEYGRAPH_SECRET_KEY securely"},
+        {"name": "CloudWatch", "use": "Monitor payout success rates"}
+      ]
+    },
+    "try_it": {
+      "prompt": "Ask Amazon Q: \"Create a Lambda function that sends payouts to Kenya via mobile money\"",
+      "result": "Amazon Q will generate compliant code with KYC checks, proper error handling, and Secrets Manager integration."
+    }
+  }
+}

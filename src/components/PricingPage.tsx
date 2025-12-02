@@ -80,27 +80,27 @@ export default function PricingPage() {
         })}
       </script>
 
-      <div className="min-h-screen py-12 px-4">
+      <div className="min-h-screen py-8 tablet:py-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <Link to="/" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 mb-8">
+          <Link to="/" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 mb-6 tablet:mb-8 text-sm tablet:text-base">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
 
-          <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold mb-4">
+          <div className="text-center mb-10 tablet:mb-16">
+            <h1 className="text-3xl tablet:text-4xl desktop:text-5xl font-bold mb-3 tablet:mb-4">
               <span className="gradient-text">Simple, Transparent Pricing</span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg tablet:text-xl text-gray-400 max-w-2xl mx-auto px-4">
               Choose the services you need. Pricing is based on the number of services selected.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 tablet:gap-8 mb-12 tablet:mb-16">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`glass-strong rounded-2xl p-8 relative ${
+                className={`glass-strong rounded-2xl p-6 tablet:p-8 relative ${
                   plan.popular ? 'border-2 border-cyan-400' : ''
                 }`}
               >

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "Building Payment Apps with Bolt.new and MoneyGraph",
+    "slug": "bolt-new-moneygraph-integration",
+    "description": "How to use Bolt.new (StackBlitz) with MoneyGraph SDK. Build and deploy payment applications directly in your browser.",
+    "author": "MoneyGraph Team",
+    "date": "2025-01-15",
+    "category": "Tutorials",
+    "tags": ["bolt-new", "stackblitz", "browser-ide", "payments", "sdk", "tutorial", "fintech", "vite", "react"],
+    "reading_time": "5 min",
+    "featured_image": "/blog/bolt-new-moneygraph.png"
+  },
+  "seo": {
+    "og_title": "Bolt.new + MoneyGraph: Browser-Based Fintech Development",
+    "og_description": "Build payment applications in your browser with Bolt.new. Our integration guide includes server actions, React components, and deployment tips.",
+    "canonical_url": "https://moneygraph.ai/blog/bolt-new-moneygraph-integration",
+    "schema_type": "HowTo",
+    "keywords": [
+      "bolt new payments",
+      "bolt new fintech",
+      "stackblitz payment app",
+      "browser ide payments",
+      "bolt new moneygraph",
+      "vite payment integration",
+      "browser-based fintech development",
+      "bolt new react payments",
+      "stackblitz sdk integration",
+      "online payment app builder"
+    ]
+  },
+  "content": {
+    "intro": "Bolt.new (powered by StackBlitz) is a browser-based AI development environment. Build and deploy full-stack applications without leaving your browser. With MoneyGraph SDK, you can create fintech applications in minutes.",
+    "why_bolt": {
+      "bolt_offers": [
+        "Instant development environment (no setup)",
+        "AI-assisted coding",
+        "One-click deployment",
+        "Built-in package management"
+      ],
+      "moneygraph_adds": [
+        "Global payment capabilities",
+        "Compliance automation",
+        "Multi-currency support",
+        "107+ country coverage"
+      ]
+    },
+    "setup": {
+      "steps": [
+        "Create Vite + React + TypeScript project in Bolt.new",
+        "Create src/lib/moneygraph.ts with single-file SDK",
+        "Add MONEYGRAPH_API_KEY to .env",
+        "Import and initialize"
+      ],
+      "init_code": "import { MoneyGraph } from './lib/moneygraph';\n\nconst mg = new MoneyGraph({ \n  apiKey: import.meta.env.MONEYGRAPH_API_KEY \n});"
+    },
+    "server_actions": {
+      "heading": "Server Actions Pattern",
+      "description": "Since Bolt.new uses Vite/React, create server actions for API calls",
+      "example_action": "export async function sendPayout(params) {\n  const status = await mg.customers.kyc.canPayout(params.customerId);\n  if (!status.allowed) {\n    return { success: false, error: 'KYC not approved' };\n  }\n  \n  return mg.executeSmartPayout({\n    customer_id: params.customerId,\n    from_currency: 'USD',\n    to_currency: 'NGN',\n    amount: params.amount,\n    recipient: params.recipient,\n    priority: 'cost',\n  });\n}"
+    },
+    "quote_countdown": {
+      "heading": "Quote Countdown Component",
+      "description": "FX quotes expire in 2 minutes. Show users the countdown.",
+      "note": "Component tracks time remaining and refreshes quote when expired"
+    },
+    "deployment": {
+      "heading": "Deployment",
+      "steps": [
+        "Change API key to sk_live_*",
+        "Set up webhooks for payout status",
+        "Enable custom domain"
+      ]
+    },
+    "tips": [
+      "Use TypeScript for better autocomplete with SDK types",
+      "Create a services folder to keep API logic separate",
+      "Add loading states - API calls take 1-3 seconds",
+      "Test in sandbox first with sk_test_* keys"
+    ]
+  },
+  "config_file": "BOLT_INTEGRATION.md"
+}
